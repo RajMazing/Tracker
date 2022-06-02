@@ -1,5 +1,6 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
+import './Expenses.css'
 
 
 function Expenses(props) {
@@ -28,7 +29,7 @@ function Expenses(props) {
  
 
     return (
-      <div> 
+      <div className={"expenses"}> 
          <ExpenseItem
         title={props.expenses[0].title}
         amount={props.expenses[0].amount}
