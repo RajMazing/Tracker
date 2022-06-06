@@ -2,6 +2,7 @@ import React from "react";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 import Expenses from "./components/Expenses/Expenses";
+import ExpenseFilter from "./components/Expenses/ExpensesFilter";
 
 
 const App = () => {
@@ -45,6 +46,7 @@ const addExpenseHandler = expense => {
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses}/>
+      <ExpenseFilter />
       </div>
     
   );
