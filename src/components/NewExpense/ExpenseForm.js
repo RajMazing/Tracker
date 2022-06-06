@@ -3,37 +3,68 @@ import './ExpenseForm.css'
 
 const ExpenseForm = () => {
 
-  // const [ enteredTitle, setEnteredTitle ] = useState('');
-  // const [ enteredAmount, setEnteredAmount ] = useState('');
-  // const [ enteredDate, setEnteredDate ] = useState('');
-  const [userInput, setUserInput] = useState({
-    enteredTitle: '',
-    enteredAmount: '',
-    enteredDate: '',
-  })
+  //first method for multiple states
+  const [ enteredTitle, setEnteredTitle ] = useState('');
+  const [ enteredAmount, setEnteredAmount ] = useState('');
+  const [ enteredDate, setEnteredDate ] = useState('');
+
+
+  // another method on using state
+  // const [userInput, setUserInput] = useState({
+  //   enteredTitle: '',
+  //   enteredAmount: '',
+  //   enteredDate: '',
+  // })
 
   const titleChangeHandler = (event) => {
-      setUserInput({
-        enteredTitle: event.target.value,
-        ...userInput,
-        enteredTitle: event.target.value
-      })
+
+    setEnteredTitle(event.target.value) //first style
+
+      //second style
+      // setUserInput({
+      //   enteredTitle: event.target.value,
+      //   ...userInput,
+      //   enteredTitle: event.target.value
+      // })
+      
+      //third style
+      // setUserInput((prevState) => {
+      //   return { ...prevState, enteredTitle: event.target.value };
+      // });
   }
   const amountChangeHandler = (event) => {
-     setUserInput({
-      enteredAmount:event.target.value,
-      ...userInput,
-      enteredAmount: event.target.value
-     })
+
+    setEnteredAmount(event.target.value) //first
+
+    //second style
+    //  setUserInput({
+    //   enteredAmount:event.target.value,
+    //   ...userInput,
+    //   enteredAmount: event.target.value
+    //  })
+
+    // third style
+    // setUserInput((prevState) => {
+    //   return { ...prevState, enteredAmount: event.target.value };
+    // });
     
   }
 
   const dateChangeHandler = (event) => {
-    setUserInput({
-      enteredDate:event.target.value,
-      ...userInput,
-      enteredDate: event.target.value
-     })
+
+    setEnteredDate(event.target.value) //first
+
+    //second style
+    // setUserInput({
+    //   enteredDate:event.target.value,
+    //   ...userInput,
+    //   enteredDate: event.target.value
+    //  })
+
+    //third style
+    // setUserInput((prevState) => {
+    //   return { ...prevState, enteredDate: event.target.value };
+    // });
   }
 
   return <form>
