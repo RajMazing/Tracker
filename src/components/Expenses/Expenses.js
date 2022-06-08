@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
+
 import "./Expenses.css";
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
@@ -16,19 +16,7 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  let expensesContent = <p> No expense Found</p>;
-
-  if (filteredExpenses.length > 0) {
-    expensesContent = filteredExpenses.map((expense) => (
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />
-    ));
-  }
-
+  
   return (
     <div>
       <Card className="expenses">
@@ -36,7 +24,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {expensesContent}
+        <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
   );
@@ -44,14 +32,3 @@ const Expenses = (props) => {
 
 export default Expenses;
 
-//ternary operation can be used instead of if statement
-// {filteredExpenses.length === 0 && <p> No Expenses Found.</p> }
-// {filteredExpenses.length > 0 &&
-//   filteredExpenses.map((expense) => (
-//     <ExpenseItem
-//       key={expense.id}
-//       title={expense.title}
-//       amount={expense.amount}
-//       date={expense.date}
-//     />
-//   ))}
