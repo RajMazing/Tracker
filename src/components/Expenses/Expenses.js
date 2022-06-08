@@ -21,6 +21,7 @@ const Expenses = (props) => {
         {/* list rendered from the array dynamically - using the map() method  */}
         {props.items.map((expense) => (
           <ExpenseItem
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
