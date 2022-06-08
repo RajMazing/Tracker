@@ -18,7 +18,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {/* list rendered from the array  */}
+        {/* list rendered from the array dynamically - using the map() method  */}
         {props.items.map((expense) => (
           <ExpenseItem
             title={expense.title}
